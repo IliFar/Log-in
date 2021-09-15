@@ -1,77 +1,52 @@
+
+//Using JavaScript strict Mode.
 "use strict";
+
+//Setting variables and calling HTML elements
 const user = "test";
 const pass = "1234";
 let username = document.getElementById("name");
 let password = document.getElementById("pswrd");
-
-const button = document.getElementById("logInBtn");
+const btn = document.getElementById("button");
 const div1 = document.getElementById("div1");
 
-
-
-
-
-//Adding button avent listner.
-button.addEventListener("click", function()
+btn.addEventListener("click", function()
 {
-    //const username = nameInput.value;
-    //const password = passwordInput.value;
-    
 
     if (username.value == user && password.value == pass) {
+
+        div1.style.display = "none";
         localStorage.setItem("username", user);
-        div1.hidden = true;
-        div2.hidden = false;
     }
-
     else {
-        alert("Wrong Username Or Password");
+        const error = document.createElement("h3");
+        error.textContent = "Wrong Username or Password";
+        div1.appendChild(error);
+        error.style.backgroundColor = "blue";
     }
+    userExist();
 });
-const loggedIn = localStorage.getItem("username");
-console.log(loggedIn)
-console.log(user)
+userExist();
+function userExist () {
+    if (localStorage.getItem("username") !== null) 
+    {
+        const h1 = document.createElement("h1");
+        h1.textContent = "Welcome";
+        document.body.appendChild(h1);
+        div1.style.display = "none";
 
-//Compare the username and the password of the local storage with the input.
-if (loggedIn === user) 
-{
-    div1.hidden = true;
-    console.log("test")
-    //div1.hidden = true;
-    //Creating the div element and appending it to body.
-    let div2 = document.createElement("div");
-    div2.id = "div2";
-    document.body.appendChild(div2);
+        const buttonOut = document.createElement("button");
+        buttonOut.textContent = "Log Out";
+        document.body.appendChild(buttonOut);
 
-    //Creating the h1 element and appending it to div2
-    let h1 = document.createElement("h1");
-    h1.textContent = "Welcome";
-    div2.appendChild(h1);
-    
-    //Creating the log out button and appending it to div2
-    let logOutButton = document.createElement("button");
-    logOutButton.textContent = "Log Out";
-    div2.append(logOutButton);
- 
+        buttonOut.addEventListener("click", function(){
+            div1.style.display = "block";
+            h1.style.display = "none";
+            buttonOut.style.display = "none";
+            localStorage.removeItem("username");
+            
+        });
+    }
 
-    
-    
-
-    //Adding event listener to the logout button
-    logOutButton.addEventListener("click", function(){
-        
-        //Hidding div2 and showing div1
-        
-        div2.hidden = true;
-        div1.hidden = false;
-
-        //Clearing the localstorage
-        localStorage.removeItem("username");
-    });
-    
-
-    //Hidding the div1 (username and password inputs)
-    
 }
-
 

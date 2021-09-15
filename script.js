@@ -27,8 +27,9 @@ btn.addEventListener("click", function()
     else {
         const error = document.createElement("h3");
         error.textContent = "Wrong Username or Password";
+        error.id = "error"
         div1.appendChild(error);
-        error.style.color = "white";
+        
     }
 
     //Firing the loggedin function after the first condition

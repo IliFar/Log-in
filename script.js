@@ -1,3 +1,4 @@
+
 //Using JavaScript strict Mode.
 "use strict";
 
@@ -48,8 +49,4 @@ function userExist () {
     }
 
 }
-
-
-
-
 

@@ -2,11 +2,11 @@
 //Using JavaScript strict Mode.
 "use strict";
 
-//Setting variables and calling HTML elements
+//Ställa in variabler
 const user = "test";
 const pass = "1234";
 
-//Getting Elements by their Ids
+//Skaffa element genom sina ID: er
 let username = document.getElementById("name");
 let password = document.getElementById("pswrd");
 const btn = document.getElementById("button");
@@ -15,15 +15,15 @@ const div1 = document.getElementById("div1");
 //Login button avent listener fired on click.
 btn.addEventListener("click", function()
 {
-    //Check if value entered is the same as user variable and pass variable
+    //Kontrollera om det angivna värdet är samma som användarvariabel och passvariabel
     if (username.value == user && password.value == pass) {
 
-        //Hiding the first div and saving user info into localstorage
+        //Döljer den första div och sparar användarinformation i lokal lagring
         div1.style.display = "none";
         localStorage.setItem("username", user);
     }
 
-    //in case user enters wrong username or password.
+    //Om användaren anger fel användarnamn eller lösenord.
     else {
         const error = document.createElement("h3");
         error.textContent = "Wrong Username or Password";
@@ -32,44 +32,44 @@ btn.addEventListener("click", function()
         
     }
 
-    //Firing the loggedin function after the first condition
+    //Avfyrar loggedin funktionen efter det första if stats.
     loggedIn();
 });
 
-//Firing the function again so that the user will keep logged in as long as it didnt log out.
+//Avfyrar funktionen igen så att användaren fortsätter att vara inloggad så länge den inte loggade ut.
 loggedIn();
 
-//This is what will happen after the user is logged in.
+//Detta är vad som kommer att hända efter att användaren har loggat in.
 function loggedIn () {
 
-    //Check if username exists in localstorage
+    //Kontrollera om användarnamn finns i lokal lagring
     if (localStorage.getItem("username") !== null) 
     {
-        //Creating a welcome message as h1, appending it to body and adding style.
+        //Skapa ett välkomstmeddelande som h1, lägga till det i body och lägga till stil.
         const h1 = document.createElement("h1");
         h1.textContent = "Welcome";
         document.body.appendChild(h1);
         div1.style.display = "none";
 
-        //Creating the logout button and appending it to body.
+        //Skapa logout knappen och lägg till den i body.
         const buttonOut = document.createElement("button");
         buttonOut.textContent = "Log Out";
         buttonOut.id = "button";
         document.body.appendChild(buttonOut);
 
-        //Logout button event listner fired on click
+        //Logga ut knappen Event Listener avfyras på klick
         buttonOut.addEventListener("click", function(){
             
-            //Displaying div1
+            //Visar div1
             div1.style.display = "block";
 
-            //Hiding h1
+            //Döljer h1
             h1.style.display = "none";
 
-            //hiding the logout button
+            //Döljer logout button
             buttonOut.style.display = "none";
 
-            //Clearing out localstorage
+            //Rensar ut lokal lagring
             localStorage.removeItem("username");
             
         });

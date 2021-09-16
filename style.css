@@ -9,7 +9,14 @@ body {
     width: 400px;
     padding: 1em;
     height: 5%;
-    background-image: url(background.jpg);
+    background-image:#ffe299;background-image:  
+    radial-gradient(at 49% 6%, hsla(54,82%,65%,1) 0, transparent 56%),  
+    radial-gradient(at 84% 49%, hsla(247,70%,74%,1) 0, transparent 50%),  
+    radial-gradient(at 54% 11%, hsla(44,63%,62%,1) 0, transparent 40%),  
+    radial-gradient(at 17% 24%, hsla(283,99%,66%,1) 0, transparent 41%),  
+    radial-gradient(at 41% 31%, hsla(348,82%,77%,1) 0, transparent 47%),  
+    radial-gradient(at 37% 32%, hsla(321,80%,79%,1) 0, transparent 46%),  
+    radial-gradient(at 1% 83%, hsla(251,86%,69%,1) 0, transparent 44%);;
     border-radius: 5%;
     overflow: hidden;
     

@@ -9,7 +9,7 @@ body {
     width: 400px;
     padding: 1em;
     height: 5%;
-    background-color: #000000;
+    background-image: url(background.jpg);
     border-radius: 5%;
     overflow: hidden;
     
@@ -48,6 +48,8 @@ legend {
 #button {
     background-color: rgb(89, 89, 230);
     border-radius: 5px;
+    border: 2px solid rgb(108, 86, 235);
+    border-style: outset; 
     color: white;
     font-size: 15px;
     font-family: cursive;
@@ -56,8 +58,12 @@ legend {
 
 input, button {
     width: 100%;
+}
 
-    
+#error {
+    background-color: rgb(13, 77, 253);
+    color: white;
+    font-family: cursive;
 }
 
 

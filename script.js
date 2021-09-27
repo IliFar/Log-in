@@ -15,29 +15,49 @@ const div1 = document.getElementById("div1");
 //Login button avent listener fired on click.
 btn.addEventListener("click", function()
 {
+    // Om användaren inte fylla i inputen.
+    if (username.value.length == 0 && password.value.length == 0){
+        alert("Enter Username And Password");
+    }
+
     //Kontrollera om det angivna värdet är samma som användarvariabel och passvariabel
-    if (username.value == user && password.value == pass) {
+    else if (username.value == user && password.value == pass) {
 
         //Döljer den första div och sparar användarinformation i lokal lagring
         div1.style.display = "none";
         localStorage.setItem("username", user);
+        loggedIn();
     }
 
     //Om användaren anger fel användarnamn eller lösenord.
-    else {
+    else if (username.value !== user){
+        
+        // Skapa Div för fel input
+        let försökDiv = document.createElement("div");
+        document.body.appendChild(försökDiv);
+
+        // Skapa div elementer
         const error = document.createElement("h3");
         error.textContent = "Wrong Username or Password";
         error.id = "error"
-        div1.appendChild(error);
-        
-    }
+        försökDiv.appendChild(error);
 
-    //Avfyrar loggedin funktionen efter det första if stats.
-    loggedIn();
+        div1.style.display = "none";
+
+        // Skapa "tillbaka" knappen
+        const försök = document.createElement("button");
+        försök.textContent = "Tillbaka"
+        försökDiv.appendChild(försök);
+
+        // Tillbaka knapp fired on click
+        försök.addEventListener("click", function() {
+            div1.style.display = "block";
+            försökDiv.style.display = "none";
+        })
+    }
+    
 });
 
-//Avfyrar funktionen igen så att användaren fortsätter att vara inloggad så länge den inte loggade ut.
-loggedIn();
 
 //Detta är vad som kommer att hända efter att användaren har loggat in.
 function loggedIn () {

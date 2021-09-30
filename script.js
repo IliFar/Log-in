@@ -58,6 +58,7 @@ btn.addEventListener("click", function()
     
 });
 
+loggedIn();
 
 //Detta är vad som kommer att hända efter att användaren har loggat in.
 function loggedIn () {

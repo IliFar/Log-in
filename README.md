@@ -1,4 +1,7 @@
+# Simple log in and log out algorithm
+
 https://ilifar.github.io/Log-in/
 
-Username : test __
+
+Username : test <br />
 password : 1234
